@@ -120,6 +120,9 @@ service:
   type: ClusterIP
   # -- Port the Service should communicate on
   port: 5000
+
+  # -- Port go2rts should communicate on
+  rtsp-port: 554
   ## Specify the nodePort value for the LoadBalancer and NodePort service types.
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
   ##

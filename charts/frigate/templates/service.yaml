@@ -44,10 +44,10 @@ spec:
 {{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
       nodePort: {{.Values.service.nodePort}}
 {{ end }}
-    - name: rtmp
-      port: 1935
+    - name: rtsp
+      port: {{ .Values.service.rtsp-port}}
       protocol: TCP
-      targetPort: rtmp
+      targetPort: rtsp
 {{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
       nodePort: {{.Values.service.nodePort}}
 {{ end }}
