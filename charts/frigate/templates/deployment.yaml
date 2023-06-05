@@ -47,8 +47,8 @@ spec:
             - name: http
               containerPort: 5000
               protocol: TCP
-            - name: rtmp
-              containerPort: 1935
+            - name: rtsp
+              containerPort: 554
               protocol: TCP
           {{- if .Values.probes.liveness.enabled }}
           livenessProbe:
