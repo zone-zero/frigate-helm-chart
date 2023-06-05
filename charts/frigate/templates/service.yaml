@@ -50,6 +50,18 @@ spec:
       targetPort: rtsp
 {{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.rtspNodePort))) }}
       nodePort: {{.Values.service.rtspNodePort}}
+    - name: webrtc-udp
+      port: {{ .Values.service.webRtcPort}}
+      protocol: UDP
+      targetPort: webrtc-udp
+{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webRtcNodePort))) }}
+      nodePort: {{.Values.service.webRtcNodePort}}
+    - name: webrtc-tcp
+      port: {{ .Values.service.webRtcPort}}
+      protocol: TCP
+      targetPort: webrtc-tcp
+{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webRtcNodePort))) }}
+      nodePort: {{.Values.service.webRtcNodePort}}
 {{ end }}
   selector:
     app.kubernetes.io/name: {{ include "frigate.name" . }}
