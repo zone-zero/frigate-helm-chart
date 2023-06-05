@@ -121,12 +121,18 @@ service:
   # -- Port the Service should communicate on
   port: 5000
 
-  # -- Port go2rts should communicate on
-  rtsp-port: 554
   ## Specify the nodePort value for the LoadBalancer and NodePort service types.
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
   ##
   # nodePort:
+
+  # -- Port go2rts should communicate on
+  rtsp-port: 5554
+
+    ## Specify the nodePort value for the LoadBalancer and NodePort service types.
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
+  ##
+  # rtsp-nodePort:
   ## Provide any additional annotations which may be required. This can be used to
   ## set the LoadBalancer service type to internal only.
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
