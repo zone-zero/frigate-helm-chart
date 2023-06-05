@@ -45,11 +45,11 @@ spec:
       nodePort: {{.Values.service.nodePort}}
 {{ end }}
     - name: rtsp
-      port: {{ .Values.service.rtsp-port}}
+      port: {{ .Values.service.rtspPort}}
       protocol: TCP
       targetPort: rtsp
-{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.rtsp-nodePort))) }}
-      nodePort: {{.Values.service.rtsp-nodePort}}
+{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.rtspNodePort))) }}
+      nodePort: {{.Values.service.rtspNodePort}}
 {{ end }}
   selector:
     app.kubernetes.io/name: {{ include "frigate.name" . }}
