@@ -48,7 +48,7 @@ spec:
               containerPort: 5000
               protocol: TCP
             - name: rtsp
-              containerPort: 554
+              containerPort: 8554
               protocol: TCP
           {{- if .Values.probes.liveness.enabled }}
           livenessProbe:
