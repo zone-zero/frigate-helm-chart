@@ -48,35 +48,34 @@ spec:
       port: {{ .Values.service.port }}
       protocol: TCP
       targetPort: http
-{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
+{{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
       nodePort: {{.Values.service.nodePort}}
-{{ end }}
+{{- end }}
+{{- if .Values.service.rtsp.enabled }}
     - name: rtsp
-      port: {{ .Values.service.rtspPort}}
+      port: {{ .Values.service.rtsp.port}}
       protocol: TCP
       targetPort: rtsp
-{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.rtspNodePort))) }}
-      nodePort: {{.Values.service.rtspNodePort}}
-{{ end }}
+{{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.rtsp.nodePort))) }}
+      nodePort: {{.Values.service.rtsp.nodePort}}
+{{- end }}
+{{- end }}
+{{ - if .Values.service.webrtc.enabled }}
     - name: webrtc-udp
-      port: {{ .Values.service.webRtcPort}}
+      port: {{ .Values.service.webrtc.port}}
       protocol: UDP
       targetPort: webrtc-udp
-{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webRtcNodePort))) }}
-      nodePort: {{.Values.service.webRtcNodePort}}
-{{ end }}
+{{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webrtc.nodePort))) }}
+      nodePort: {{.Values.service.webrtc.nodePort}}
+{{- end }}
     - name: webrtc-tcp
       port: {{ .Values.service.webRtcPort}}
       protocol: TCP
       targetPort: webrtc-tcp
-{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webRtcNodePort))) }}
-      nodePort: {{.Values.service.webRtcNodePort}}
-{{ end }}
-    - name: rtsp
-      port: 8554
-      protocol: TCP
-      targetPort: rtsp
-      {{/* TODO: think of making the nodePort ability available, the rtmp solution from above would not work as you can't use the same port multiple times */}}
+{{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webrtc.nodePort))) }}
+      nodePort: {{.Values.service.webrtc.nodePort}}
+{{- end }}
+{{- end }}
   selector:
     app.kubernetes.io/name: {{ include "frigate.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
