@@ -55,6 +55,9 @@ fullnameOverride: ""
 
 # -- frigate configuration - see [Docs](https://docs.frigate.video/configuration/index) for more info
 config: |
+  database: 
+    path: /data/frigate.db
+    
   mqtt:
     # Required: host name
     host: mqtt.server.com
@@ -117,10 +120,26 @@ service:
   type: ClusterIP
   # -- Port the Service should communicate on
   port: 5000
+
   ## Specify the nodePort value for the LoadBalancer and NodePort service types.
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
   ##
   # nodePort:
+
+  # -- Port go2rts should communicate on
+  rtspPort: 8554
+
+    ## Specify the nodePort value for the LoadBalancer and NodePort service types.
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
+  ##
+  # rtspNodePort:
+
+  webRtcPort: 8555
+
+      ## Specify the nodePort value for the LoadBalancer and NodePort service types.
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
+  ##
+  # webRtcNodePort:
   ## Provide any additional annotations which may be required. This can be used to
   ## set the LoadBalancer service type to internal only.
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
@@ -202,7 +221,7 @@ persistence:
   media:
     # -- Enables persistence for the media directory
     enabled: false
-    ## frigate data Persistent Volume Storage Class
+    ## frigate media Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
     ## If undefined (the default) or set to null, no storageClassName spec is

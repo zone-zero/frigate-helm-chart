@@ -51,12 +51,26 @@ spec:
 {{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
       nodePort: {{.Values.service.nodePort}}
 {{ end }}
-    - name: rtmp
-      port: 1935
+    - name: rtsp
+      port: {{ .Values.service.rtspPort}}
       protocol: TCP
-      targetPort: rtmp
-{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
-      nodePort: {{.Values.service.nodePort}}
+      targetPort: rtsp
+{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.rtspNodePort))) }}
+      nodePort: {{.Values.service.rtspNodePort}}
+{{ end }}
+    - name: webrtc-udp
+      port: {{ .Values.service.webRtcPort}}
+      protocol: UDP
+      targetPort: webrtc-udp
+{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webRtcNodePort))) }}
+      nodePort: {{.Values.service.webRtcNodePort}}
+{{ end }}
+    - name: webrtc-tcp
+      port: {{ .Values.service.webRtcPort}}
+      protocol: TCP
+      targetPort: webrtc-tcp
+{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webRtcNodePort))) }}
+      nodePort: {{.Values.service.webRtcNodePort}}
 {{ end }}
     - name: rtsp
       port: 8554
