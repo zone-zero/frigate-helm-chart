@@ -60,7 +60,7 @@ spec:
       nodePort: {{.Values.service.rtsp.nodePort}}
 {{- end }}
 {{- end }}
-{{ - if .Values.service.webrtc.enabled }}
+{{- if .Values.service.webrtc.enabled }}
     - name: webrtc-udp
       port: {{ .Values.service.webrtc.port}}
       protocol: UDP
