@@ -116,10 +116,10 @@ helm upgrade --install \
 | service.loadBalancerIP | string | `nil` | Set specific IP address for LoadBalancer. `service.type` must be set to `LoadBalancer` |
 | service.port | int | `5000` | Port the Service should communicate on |
 | service.type | string | `"ClusterIP"` | Type of Service to use |
-| service.rtsp.enabled | bool | `false` | Enable external access to the RTSP service | 
-| service.rtsp.port | int | `8554` | Port the RTSP Service should communicate on | 
-| service.webrtc.enabled | bool | `false` | Enable external access to the WebRTC service | 
-| service.webrtc.port | int | `8555` | Port the WebRTC Service should communicate on | 
+| service.rtspEnabled | bool | `false` | Enable external access to the RTSP service | 
+| service.rtspPort | int | `8554` | Port the RTSP Service should communicate on | 
+| service.webrtcEnabled | bool | `false` | Enable external access to the WebRTC service | 
+| service.webrtcPort | int | `8555` | Port the WebRTC Service should communicate on | 
 | shmSize | string | `"1Gi"` | amount of shared memory to use for caching |
 | strategyType | string | `"Recreate"` | upgrade strategy type (e.g. Recreate or RollingUpdate) |
 | tolerations | list | `[]` | Node toleration configuration |

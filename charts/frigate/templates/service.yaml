@@ -51,29 +51,29 @@ spec:
 {{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
       nodePort: {{.Values.service.nodePort}}
 {{- end }}
-{{- if .Values.service.rtsp.enabled }}
+{{- if .Values.service.rtspEnabled }}
     - name: rtsp
-      port: {{ .Values.service.rtsp.port}}
+      port: {{ .Values.service.rtspPort}}
       protocol: TCP
       targetPort: rtsp
-{{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.rtsp.nodePort))) }}
-      nodePort: {{.Values.service.rtsp.nodePort}}
+{{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.rtspNodePort))) }}
+      nodePort: {{.Values.service.rtspNodePort}}
 {{- end }}
 {{- end }}
-{{- if .Values.service.webrtc.enabled }}
+{{- if .Values.service.webrtcEnabled }}
     - name: webrtc-udp
-      port: {{ .Values.service.webrtc.port}}
+      port: {{ .Values.service.webrtcPort}}
       protocol: UDP
       targetPort: webrtc-udp
-{{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webrtc.nodePort))) }}
-      nodePort: {{.Values.service.webrtc.nodePort}}
+{{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webrtcNodePort))) }}
+      nodePort: {{.Values.service.webrtcNodePort}}
 {{- end }}
     - name: webrtc-tcp
-      port: {{ .Values.service.webrtc.port}}
+      port: {{ .Values.service.webrtcPort}}
       protocol: TCP
       targetPort: webrtc-tcp
-{{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webrtc.nodePort))) }}
-      nodePort: {{.Values.service.webrtc.nodePort}}
+{{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webrtcNodePort))) }}
+      nodePort: {{.Values.service.webrtcNodePort}}
 {{- end }}
 {{- end }}
   selector:

@@ -132,24 +132,23 @@ service:
   labels: {}
 
   # -- Ports for rtsp and webrtc services
-  rtsp:
-    # -- enables external availability of RTSP
-    enabled: False
-    # -- Port the RTSP Service should communicate on
-    port: 8554
-    ## Specify the nodePort value for the LoadBalancer and NodePort service types.
-    ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
-    ##
-    # nodePort:
-  webrtc:
-    # -- enables external availability of WebRTC
-    enabled: False
-    # -- Port the WebRTC Service should communicate on. Note that both TCP and UDP services will be exposed. (webrtc-tcp and webrtc-udp)
-    port: 8555
-    ## Specify the nodePort value for the LoadBalancer and NodePort service types.
-    ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
-    ##
-    # nodePort:
+  # -- enables external availability of RTSP
+  rtspEnabled: false
+  # -- Port the RTSP Service should communicate on
+  rtspPort: 8554
+  ## Specify the nodePort value for the LoadBalancer and NodePort service types.
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
+  ##
+  # rtspNodePort:
+
+  # -- enables external availability of WebRTC
+  webrtcEnabled: False
+  # -- Port the WebRTC Service should communicate on. Note that both TCP and UDP services will be exposed. (webrtc-tcp and webrtc-udp)
+  webrtcPort: 8555
+  ## Specify the nodePort value for the LoadBalancer and NodePort service types.
+  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
+  ##
+  # webrtcNodePort:
 
   # -- Set specific IP address for LoadBalancer. `service.type` must be set to `LoadBalancer`
   loadBalancerIP:
