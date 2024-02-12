@@ -69,7 +69,7 @@ spec:
       nodePort: {{.Values.service.webrtc.nodePort}}
 {{- end }}
     - name: webrtc-tcp
-      port: {{ .Values.service.webRtcPort}}
+      port: {{ .Values.service.webrtc.port}}
       protocol: TCP
       targetPort: webrtc-tcp
 {{- if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.webrtc.nodePort))) }}
