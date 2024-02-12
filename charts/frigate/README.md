@@ -1,6 +1,6 @@
 # frigate
 
-![Version: 7.3.1](https://img.shields.io/badge/Version-7.3.0-informational?style=flat-square) ![AppVersion: 0.13.1](https://img.shields.io/badge/AppVersion-0.13.1-informational?style=flat-square)
+![Version: 7.3.2](https://img.shields.io/badge/Version-7.3.0-informational?style=flat-square) ![AppVersion: 0.13.1](https://img.shields.io/badge/AppVersion-0.13.1-informational?style=flat-square)
 
 NVR With Realtime Object Detection for IP Cameras
 
